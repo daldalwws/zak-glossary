@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Глоссарий закупок — Bereke Bank</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:    #0B1929;
+    --navy2:   #122033;
+    --navy3:   #1A2E45;
+    --teal:    #00A896;
+    --teal2:   #02C39A;
+    --gold:    #F4A51A;
+    --orange:  #E8622A;
+    --white:   #F0F4F8;
+    --muted:   #8BA3BB;
+    --border:  rgba(0,168,150,0.18);
+    --card-bg: rgba(18,32,51,0.92);
+    --radius:  12px;
+    --shadow:  0 4px 32px rgba(0,0,0,0.35);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 13px;
+    line-height: 1.55;
+    min-height: 100vh;
+  }
+
+  /* ─── NAV ─── */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(11,25,41,0.97);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 4px;
+    padding: 0 16px;
+    overflow-x: auto;
+  }
+  .nav-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px; font-weight: 700;
+    color: var(--teal);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    padding: 10px 14px 10px 0;
+    border-right: 1px solid var(--border);
+    margin-right: 6px;
+  }
+  .tab-btn {
+    background: none; border: none; cursor: pointer;
+    color: var(--muted);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 11.5px; font-weight: 500;
+    padding: 10px 12px;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: color .2s, border-color .2s;
+    letter-spacing: 0.03em;
+  }
+  .tab-btn:hover { color: var(--white); }
+  .tab-btn.active { color: var(--teal); border-bottom-color: var(--teal); }
+
+  /* ─── SECTIONS ─── */
+  .section { display: none; padding: 20px 20px 28px; animation: fadeIn .3s ease; }
+  .section.active { display: block; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.02em;
+    margin-bottom: 4px;
+  }
+  .section-sub {
+    font-size: 11.5px; color: var(--muted);
+    margin-bottom: 18px;
+  }
+
+  /* ─── CARDS ─── */
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+  }
+  .card-title {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 12px; font-weight: 600;
+    color: var(--teal);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  /* ─── GRID UTILITIES ─── */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .grid4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; }
+  @media(max-width:900px) {
+    .grid4 { grid-template-columns:1fr 1fr; }
+    .grid3 { grid-template-columns:1fr; }
+  }
+  @media(max-width:680px) {
+    .grid2, .grid4 { grid-template-columns:1fr; }
+  }
+
+  /* ─── SECTION 1: GLOSSARY ─── */
+  .term-list { display: flex; flex-direction: column; gap: 8px; }
+  .term-item {
+    display: grid; grid-template-columns: 120px 1fr;
+    gap: 10px; align-items: start;
+    padding: 10px 12px;
+    background: rgba(26,46,69,0.6);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: background .2s;
+  }
+  .term-item:hover { background: rgba(26,46,69,0.9); }
+  .term-key {
+    font-weight: 600; font-size: 12.5px; color: var(--teal);
+    padding-top: 1px;
+  }
+  .term-val { color: var(--white); font-size: 12px; }
+
+  .badge {
+    display: inline-block;
+    font-size: 10px; font-weight: 600;
+    padding: 2px 8px; border-radius: 20px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .badge-teal  { background: rgba(0,168,150,0.18); color: var(--teal2); border:1px solid rgba(0,168,150,0.35); }
+  .badge-orange{ background: rgba(232,98,42,0.18); color: var(--orange); border:1px solid rgba(232,98,42,0.35); }
+  .badge-gold  { background: rgba(244,165,26,0.18); color: var(--gold); border:1px solid rgba(244,165,26,0.35); }
+  .badge-muted { background: rgba(139,163,187,0.15); color: var(--muted); border:1px solid rgba(139,163,187,0.25); }
+
+  .proc-grid { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+  .proc-item {
+    padding: 10px 14px;
+    background: rgba(26,46,69,0.6);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    border-left: 3px solid var(--teal);
+  }
+  .proc-item.orange-l { border-left-color: var(--orange); }
+  .proc-item.gold-l   { border-left-color: var(--gold); }
+  .proc-name { font-weight: 600; font-size: 12.5px; color: var(--white); margin-bottom: 3px; }
+  .proc-desc { font-size: 11.5px; color: var(--muted); }
+
+  /* ─── SECTION 2: TIMELINE / BAR CHART ─── */
+  .bar-list { display: flex; flex-direction: column; gap: 6px; }
+  .bar-row {
+    display: grid; grid-template-columns: 200px 1fr 60px;
+    align-items: center; gap: 10px;
+  }
+  .bar-label { font-size: 12px; color: var(--white); text-align: right; }
+  .bar-track {
+    height: 22px; background: rgba(255,255,255,0.06);
+    border-radius: 4px; overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%; border-radius: 4px;
+    background: var(--teal);
+    transition: width 1s cubic-bezier(.4,0,.2,1);
+    display: flex; align-items: center; padding-left: 6px;
+    font-size: 10px; font-weight: 600; color: #fff;
+    white-space: nowrap;
+  }
+  .bar-fill.highlight { background: var(--orange); }
+  .bar-days { font-size: 12px; font-weight: 600; color: var(--gold); text-align: left; }
+
+  /* ─── SECTION 3: STRATEGY FLOWCHART ─── */
+  .flow-container { display: flex; flex-direction: column; align-items: center; gap: 0; }
+  .flow-node {
+    padding: 10px 24px; border-radius: 30px;
+    font-weight: 600; font-size: 12.5px; text-align: center;
+    min-width: 180px;
+  }
+  .flow-start  { background: var(--navy3); border: 2px solid var(--teal); color: var(--teal); }
+  .flow-diamond {
+    width: 0; height: 0;
+    border-left: 52px solid transparent;
+    border-right: 52px solid transparent;
+    border-bottom: 40px solid var(--navy3);
+    position: relative; margin: 0 auto;
+  }
+  .flow-diamond::after {
+    content: 'Выбор типа\nзакупки';
+    position: absolute; top: 8px; left: -44px;
+    font-size: 10px; font-weight: 600; color: var(--teal);
+    white-space: pre; text-align: center; line-height: 1.3;
+  }
+  .flow-arrow-down { width: 2px; height: 18px; background: var(--border); margin: 0 auto; }
+  .flow-branches {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 12px; width: 100%; margin-top: 8px;
+  }
+  .flow-branch { text-align: center; }
+  .flow-branch-title {
+    padding: 8px 10px; border-radius: 8px;
+    font-weight: 600; font-size: 12px;
+    margin-bottom: 6px;
+  }
+  .nc  { background: rgba(0,168,150,0.15); border: 1px solid rgba(0,168,150,0.35); color: var(--teal); }
+  .ac  { background: rgba(0,168,150,0.3); border: 1px solid var(--teal); color: var(--teal2); }
+  .cc  { background: var(--navy3); border: 1px solid rgba(255,255,255,0.2); color: var(--white); }
+  .flow-branch-items { font-size: 11px; color: var(--muted); }
+  .flow-note { font-size: 11px; color: var(--muted); text-align: center; margin-top: 12px; font-style: italic; }
+
+  /* ─── SECTION 4: AUTHORITY LIMITS ─── */
+  .limit-row {
+    display: grid; grid-template-columns: repeat(4,1fr);
+    gap: 0;
+  }
+  @media(max-width:800px){ .limit-row { grid-template-columns:1fr 1fr; } }
+  .limit-card {
+    padding: 16px 14px; border-right: 1px solid var(--border);
+  }
+  .limit-card:last-child { border-right: none; }
+  .limit-range {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px; font-weight: 600;
+    color: var(--gold); margin-bottom: 6px;
+  }
+  .limit-proc {
+    font-size: 11.5px; color: var(--teal); font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .limit-detail { font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .limit-decision {
+    font-size: 11.5px; font-weight: 600;
+    color: var(--white);
+    padding: 5px 8px;
+    border-radius: 6px;
+    border-left: 3px solid var(--teal);
+    background: rgba(0,168,150,0.08);
+  }
+  .limit-decision.l2 { border-left-color: var(--teal2); }
+  .limit-decision.l3 { border-left-color: var(--gold); }
+  .limit-decision.l4 { border-left-color: var(--orange); }
+
+  /* SHORT SCHEME TABLE */
+  .scheme-table { width: 100%; border-collapse: collapse; font-size: 11.5px; }
+  .scheme-table th {
+    background: var(--navy3); color: var(--teal);
+    padding: 8px 10px; text-align: left;
+    border-bottom: 2px solid var(--border);
+    font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  .scheme-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    color: var(--white); vertical-align: top;
+  }
+  .scheme-table tr:hover td { background: rgba(255,255,255,0.03); }
+  .scheme-table .col-range {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; color: var(--gold); font-weight: 600;
+    white-space: nowrap;
+  }
+  .scheme-table .col-decision { color: var(--teal); font-weight: 500; }
+  .scheme-footer {
+    margin-top: 10px; padding: 8px 12px;
+    background: rgba(0,168,150,0.08); border-radius: 6px;
+    border: 1px solid var(--border);
+    font-size: 11.5px; color: var(--teal); font-weight: 500;
+    text-align: center;
+  }
+
+  /* ─── SECTION 5: PROCESS STAGES ─── */
+  .stage-header {
+    display: grid; grid-template-columns: 100px 1fr 1fr;
+    gap: 10px; margin-bottom: 6px;
+  }
+  .stage-col-title {
+    padding: 8px 12px; border-radius: 8px;
+    font-size: 11.5px; font-weight: 700; text-align: center;
+  }
+  .col-blue   { background: rgba(0,168,150,0.18); color: var(--teal); }
+  .col-orange { background: rgba(232,98,42,0.18); color: var(--orange); }
+
+  .stage-row {
+    display: grid; grid-template-columns: 100px 1fr 1fr;
+    gap: 10px; margin-bottom: 8px; align-items: stretch;
+  }
+  .stage-phase {
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--muted);
+    background: var(--navy3); border-radius: 8px;
+    padding: 8px 4px; text-align: center;
+    border: 1px solid var(--border);
+  }
+  .stage-cell {
+    padding: 10px 12px; border-radius: 8px;
+    border: 1px solid var(--border);
+    background: rgba(26,46,69,0.55);
+  }
+  .stage-cell.blue-c  { border-left: 3px solid var(--teal); }
+  .stage-cell.orange-c{ border-left: 3px solid var(--orange); }
+  .stage-cell.shared  { border-left: 3px solid var(--muted); }
+  .stage-cell-title { font-weight: 600; font-size: 12px; color: var(--white); margin-bottom: 3px; }
+  .stage-cell-desc  { font-size: 11px; color: var(--muted); }
+  .stage-tag {
+    display: inline-block; font-size: 9.5px; font-weight: 600;
+    padding: 1px 6px; border-radius: 10px; margin-top: 4px;
+    background: rgba(0,168,150,0.15); color: var(--teal);
+    border: 1px solid rgba(0,168,150,0.25);
+  }
+  .stage-tag.manual { background: rgba(232,98,42,0.15); color: var(--orange); border-color: rgba(232,98,42,0.25); }
+
+  /* ─── SECTION 6: PROCUREMENT TYPES DETAIL ─── */
+  .type-card {
+    padding: 16px; border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .type-header {
+    display: flex; align-items: flex-start;
+    justify-content: space-between; gap: 8px;
+  }
+  .type-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px; font-weight: 700; color: var(--white);
+  }
+  .type-subtitle { font-size: 11.5px; color: var(--muted); margin-top: 2px; }
+  .type-desc { font-size: 12px; color: var(--white); line-height: 1.55; }
+  .type-key {
+    font-size: 11.5px; color: var(--muted);
+    padding: 8px 10px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 6px; border: 1px solid rgba(255,255,255,0.07);
+  }
+  .type-key strong { color: var(--teal); }
+
+  /* ─── SEPARATOR ─── */
+  .sep { height: 1px; background: var(--border); margin: 16px 0; }
+  .mt10 { margin-top: 10px; }
+  .mt14 { margin-top: 14px; }
+  .label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 4px; }
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav class="nav">
+  <div class="nav-brand">Закупки · 2026</div>
+  <button class="tab-btn active" onclick="switchTab('glossary',this)">01 · Глоссарий</button>
+  <button class="tab-btn" onclick="switchTab('timings',this)">02 · Сроки</button>
+  <button class="tab-btn" onclick="switchTab('strategy',this)">03 · Стратегия</button>
+  <button class="tab-btn" onclick="switchTab('limits',this)">04 · Лимиты</button>
+  <button class="tab-btn" onclick="switchTab('process',this)">05 · Этапы</button>
+  <button class="tab-btn" onclick="switchTab('types',this)">06 · Виды</button>
+</nav>
+
+
+<!-- ══════════════════════════════════════════════
+     01 · ГЛОССАРИЙ
+════════════════════════════════════════════════ -->
+<section id="glossary" class="section active">
+  <div class="section-title">Глоссарий</div>
+  <div class="section-sub">Участники процесса и виды закупочных процедур</div>
+
+  <div class="grid2">
+    <!-- LEFT: Participants -->
+    <div class="card">
+      <div class="card-title">Участники процесса</div>
+      <div class="term-list">
+        <div class="term-item">
+          <div class="term-key">СОП</div>
+          <div class="term-val">Сметообразующее подразделение, ответственное за планирование и использование бюджетных средств</div>
+        </div>
+        <div class="term-item">
+          <div class="term-key">ЭТП</div>
+          <div class="term-val">Юридическое лицо, владелец электронной торговой площадки mp.kz, где проводятся закупочные процедуры</div>
+        </div>
+        <div class="term-item">
+          <div class="term-key">Закупочный<br>комитет</div>
+          <div class="term-val">Постоянно действующий уполномоченный орган при Правлении Банка для выбора поставщика и принятия решения по закупкам</div>
+        </div>
+        <div class="term-item">
+          <div class="term-key">Организатор<br>закупок</div>
+          <div class="term-val">ССП, ответственное за организацию, подготовку и проведение закупочной процедуры до заключения договора</div>
+        </div>
+        <div class="term-item">
+          <div class="term-key">Куратор (L1)</div>
+          <div class="term-val">Работник Банка, в чьём подчинении находится подразделение в соответствии с приказом о распределении обязанностей</div>
+        </div>
+        <div class="term-item">
+          <div class="term-key">АКИТ</div>
+          <div class="term-val">Архитектурный комитет по информационным технологиям</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Types -->
+    <div class="card">
+      <div class="card-title">Виды закупок</div>
+
+      <div class="label">Неконкурентные</div>
+      <div class="proc-grid">
+        <div class="proc-item">
+          <div class="proc-name">Закупка у единственного поставщика</div>
+          <div class="proc-desc">Предложение направляется конкретному поставщику без проведения торга</div>
+        </div>
+      </div>
+
+      <div class="sep"></div>
+
+      <div class="label">Конкурентные</div>
+      <div class="proc-grid">
+        <div class="proc-item">
+          <div class="proc-name">Анализ цен <span class="badge badge-teal">Конкурентный</span></div>
+          <div class="proc-desc">Поставщик определяется по наиболее выгодным условиям на основе анализа открытых цен и коммерческих предложений</div>
+        </div>
+        <div class="proc-item orange-l">
+          <div class="proc-name">Торг <span class="badge badge-gold">Приоритетный</span></div>
+          <div class="proc-desc">Многократное выставление ценовых предложений на ЭТП; побеждает поставщик с наименьшей ценой</div>
+        </div>
+        <div class="proc-item gold-l">
+          <div class="proc-name">Конкурс / HardWay <span class="badge badge-orange">Комплексный</span></div>
+          <div class="proc-desc">Выбор поставщика по установленным критериям; учитываются качество и технические характеристики</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     02 · СРОКИ
+════════════════════════════════════════════════ -->
+<section id="timings" class="section">
+  <div class="section-title">Сводная таблица сроков</div>
+  <div class="section-sub">Нормативные сроки проведения закупочных процедур · рабочие дни</div>
+
+  <div class="card">
+    <div class="bar-list" id="barList">
+      <!-- rendered by JS -->
+    </div>
+    <div style="margin-top:14px; font-size:11px; color:var(--muted); display:flex; align-items:center; gap:8px;">
+      <span style="width:12px;height:12px;background:var(--teal);border-radius:3px;display:inline-block;flex-shrink:0;"></span> Стандартный срок
+      <span style="width:12px;height:12px;background:var(--orange);border-radius:3px;display:inline-block;flex-shrink:0; margin-left:12px;"></span> Максимальный срок (HardWay)
+      <span style="margin-left:auto; font-style:italic;">Сроки в рабочих днях</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     03 · СТРАТЕГИЯ
+════════════════════════════════════════════════ -->
+<section id="strategy" class="section">
+  <div class="section-title">Экосистема закупок: Выбор стратегии</div>
+  <div class="section-sub">Метод определяется суммой бюджета и наличием альтернатив на рынке</div>
+
+  <div class="card">
+    <div class="flow-container">
+
+      <!-- Start node -->
+      <div class="flow-node flow-start">Начало процесса закупки</div>
+      <div class="flow-arrow-down"></div>
+
+      <!-- Diamond shape via CSS box -->
+      <div style="position:relative; width:140px; height:72px; margin:0 auto;">
+        <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) rotate(45deg);
+                    width:64px; height:64px; background:var(--navy3);
+                    border:2px solid var(--teal); border-radius:4px;"></div>
+        <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+                    font-size:11px; font-weight:600; color:var(--teal); text-align:center; line-height:1.3; z-index:1;">
+          Выбор типа<br>закупки
+        </div>
+      </div>
+      <div class="flow-arrow-down"></div>
+
+      <!-- Three branches -->
+      <div class="flow-branches">
+        <div class="flow-branch">
+          <div class="flow-branch-title nc">Неконкурентный</div>
+          <div class="flow-branch-items" style="display:flex;flex-direction:column;gap:4px;">
+            <div style="padding:5px 8px;background:rgba(0,168,150,0.07);border-radius:5px;border:1px solid var(--border);font-size:11px;">
+              Единственный поставщик
+            </div>
+            <div style="padding:5px 8px;background:rgba(0,168,150,0.07);border-radius:5px;border:1px solid var(--border);font-size:11px;">
+              Заказ под договор
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-branch">
+          <div class="flow-branch-title ac">Анализ цен</div>
+          <div class="flow-branch-items" style="display:flex;flex-direction:column;gap:4px;">
+            <div style="padding:5px 8px;background:rgba(0,168,150,0.12);border-radius:5px;border:1px solid rgba(0,168,150,0.3);font-size:11px;">
+              Запрос ценовых предложений
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-branch">
+          <div class="flow-branch-title cc">Конкурентный</div>
+          <div class="flow-branch-items" style="display:flex;flex-direction:column;gap:4px;">
+            <div style="padding:5px 8px;background:rgba(244,165,26,0.08);border-radius:5px;border:1px solid rgba(244,165,26,0.25);font-size:11px;">
+              Торг / Аукцион на ЭТП
+            </div>
+            <div style="padding:5px 8px;background:rgba(232,98,42,0.08);border-radius:5px;border:1px solid rgba(232,98,42,0.25);font-size:11px;">
+              Конкурс HardWay
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-note">Выбор метода зависит от суммы бюджета и наличия альтернатив на рынке</div>
+    </div>
+  </div>
+
+  <!-- Type matrix quick reference -->
+  <div class="mt14">
+    <div class="card">
+      <div class="card-title">Матрица применения</div>
+      <table class="scheme-table">
+        <thead>
+          <tr>
+            <th>Тип</th>
+            <th>Процедура</th>
+            <th>Когда применяется</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="badge badge-muted">Неконкурентный</span></td>
+            <td>Единственный поставщик</td>
+            <td>Нет альтернатив; срочные или уникальные закупки</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-muted">Неконкурентный</span></td>
+            <td>Заказ под договор</td>
+            <td>Наличие действующего рамочного договора</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-teal">Анализ цен</span></td>
+            <td>Запрос ценовых предложений</td>
+            <td>Стандартные товары/услуги, сумма до 50 млн тенге</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-gold">Конкурентный</span></td>
+            <td>Торг на ЭТП</td>
+            <td>Приоритет для крупных закупок; решающий критерий — цена</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-orange">Конкурентный</span></td>
+            <td>Конкурс / HardWay</td>
+            <td>Сложные закупки; оценка по качеству и техническим критериям</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     04 · ЛИМИТЫ
+════════════════════════════════════════════════ -->
+<section id="limits" class="section">
+  <div class="section-title">Лимиты полномочий и принятие решений</div>
+  <div class="section-sub">Матрица порогов, процедур и уровней согласования</div>
+
+  <!-- 4-tier escalation -->
+  <div class="card" style="padding:0;overflow:hidden;">
+    <div class="limit-row">
+      <div class="limit-card">
+        <div class="limit-range">до 100 МРП</div>
+        <div class="limit-proc">Анализ цен БЕЗ ЭТП</div>
+        <div class="limit-detail">Без договора или на основании счёта на оплату (есть исключения)</div>
+        <div class="limit-decision">БЕЗ ДОГОВОРА<br><span style="font-size:10px;color:var(--muted);">Филиал / любой заказчик</span></div>
+      </div>
+      <div class="limit-card">
+        <div class="limit-range">100 МРП – 15 млн тт</div>
+        <div class="limit-proc">Анализ цен (через ЭТП от 5 млн)</div>
+        <div class="limit-detail">До 5 млн — ЭТП не обязательно; свыше 5 млн — только через ЭТП</div>
+        <div class="limit-decision l2">УЦС<br><span style="font-size:10px;color:var(--muted);">Руководитель УЦС (если через УЦС)</span></div>
+      </div>
+      <div class="limit-card">
+        <div class="limit-range">15 – 50 млн тт</div>
+        <div class="limit-proc">Торги / Конкурс на ЭТП</div>
+        <div class="limit-detail">Утверждение целесообразности — Куратор инициатора (L1)</div>
+        <div class="limit-decision l3">КУРАТОР L1<br><span style="font-size:10px;color:var(--muted);">Конкурентные + Ед. поставщик</span></div>
+      </div>
+      <div class="limit-card">
+        <div class="limit-range">свыше 50 млн тт</div>
+        <div class="limit-proc">Торги / Конкурс на ЭТП</div>
+        <div class="limit-detail">Утверждение целесообразности — Куратор инициатора (L1)</div>
+        <div class="limit-decision l4">ЗАКУПОЧНЫЙ КОМИТЕТ<br><span style="font-size:10px;color:var(--muted);">Кроме единственного поставщика</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Short scheme full table -->
+  <div class="mt14">
+    <div class="card">
+      <div class="card-title">Полная схема — «Короткая таблица»</div>
+      <table class="scheme-table">
+        <thead>
+          <tr>
+            <th>Диапазон</th>
+            <th>Заявка / Инициация</th>
+            <th>Процедура</th>
+            <th>Принятие решения об итогах</th>
+            <th>Подписание договора</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-range">0 – 100 МРП</td>
+            <td>Заявка (короткая)<br><span style="color:var(--muted);">Инициатор закупок</span></td>
+            <td>Анализ цен БЕЗ ЭТП<br><span style="color:var(--muted);font-size:10.5px;">Без договора / по счёту</span></td>
+            <td class="col-decision">Руководитель УЦС<br><span style="color:var(--muted);font-size:10.5px;">(если заявка через УЦС)</span></td>
+            <td>Руководитель ССП / L1</td>
+          </tr>
+          <tr>
+            <td class="col-range">100 МРП – 15 млн</td>
+            <td>Заявка, ТЗ, требования<br><span style="color:var(--muted);">Инициатор закупок</span></td>
+            <td>Анализ цен<br><span style="color:var(--muted);font-size:10.5px;">До 5 млн — без ЭТП; выше — через ЭТП</span></td>
+            <td class="col-decision">Руководитель УЦС<br><span style="color:var(--muted);font-size:10.5px;">(если заявка через УЦС)</span></td>
+            <td>Руководитель ССП / L1</td>
+          </tr>
+          <tr>
+            <td class="col-range">15 – 50 млн</td>
+            <td>Утверждение целесообразности<br><span style="color:var(--muted);">Куратор инициатора (L1)</span></td>
+            <td>Торги / Конкурс на ЭТП</td>
+            <td class="col-decision">Куратор инициатора L1<br><span style="color:var(--orange);font-size:10.5px;">Конкурентные закупки от 15–50 млн + Ед. поставщик</span></td>
+            <td>Руководитель ССП / L1</td>
+          </tr>
+          <tr>
+            <td class="col-range">+ 50 млн</td>
+            <td>Утверждение целесообразности<br><span style="color:var(--muted);">Куратор инициатора (L1)</span></td>
+            <td>Торги / Конкурс на ЭТП</td>
+            <td class="col-decision">Закупочный комитет<br><span style="color:var(--muted);font-size:10.5px;">Кроме единственного поставщика</span></td>
+            <td>Руководитель ССП / L1</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="scheme-footer">Подписание договора во всех случаях — Руководитель ССП / L1</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     05 · ЭТАПЫ ПРОЦЕССА
+════════════════════════════════════════════════ -->
+<section id="process" class="section">
+  <div class="section-title">Этапы закупочного процесса</div>
+  <div class="section-sub">Сравнительная схема: до 15 млн тт vs свыше 15 млн тт</div>
+
+  <div class="card">
+    <!-- Header -->
+    <div class="stage-header">
+      <div></div>
+      <div class="stage-col-title col-blue">До 15 млн тт</div>
+      <div class="stage-col-title col-orange">Свыше 15 млн тт</div>
+    </div>
+
+    <!-- ИНИЦИАЦИЯ (shared) -->
+    <div class="stage-row">
+      <div class="stage-phase">Инициация</div>
+      <div class="stage-cell shared" style="grid-column: 2 / 4;">
+        <div class="stage-cell-title">ELMA — Заявка инициатора</div>
+        <div class="stage-cell-desc">Подача заявки через систему ELMA</div>
+        <span class="stage-tag">ELMA</span>
+      </div>
+    </div>
+
+    <!-- СОГЛАСОВАНИЕ -->
+    <div class="stage-row">
+      <div class="stage-phase">Согласование</div>
+      <div class="stage-cell blue-c">
+        <div class="stage-cell-title">Упрощённое согласование</div>
+        <div class="stage-cell-desc">Проверка 6 ключевыми сотрудниками, включая руководителей и ИТ-блок</div>
+        <span class="stage-tag">ELMA</span>
+      </div>
+      <div class="stage-cell orange-c">
+        <div class="stage-cell-title">Усиленный контроль (Куратор)</div>
+        <div class="stage-cell-desc">В процесс включается куратор инициатора (L1)</div>
+        <span class="stage-tag">ELMA</span>
+      </div>
+    </div>
+
+    <!-- ВЫБОР -->
+    <div class="stage-row">
+      <div class="stage-phase">Выбор</div>
+      <div class="stage-cell blue-c">
+        <div class="stage-cell-title">Выбор поставщика</div>
+        <div class="stage-cell-desc">Выбор и утверждение ответственным лицом</div>
+        <span class="stage-tag manual">Manual</span>
+      </div>
+      <div class="stage-cell orange-c">
+        <div class="stage-cell-title">Закупочный комитет (ЗК)</div>
+        <div class="stage-cell-desc">Запуск пакета документов через специальный комитет</div>
+        <span class="stage-tag manual">Manual</span>
+      </div>
+    </div>
+
+    <!-- ПРОВЕРКА (shared) -->
+    <div class="stage-row">
+      <div class="stage-phase">Проверка</div>
+      <div class="stage-cell shared" style="grid-column: 2 / 4;">
+        <div class="stage-cell-title">Проверка документации</div>
+        <div class="stage-cell-desc">Проверка соответствия стандартам и требованиям Банка</div>
+        <span class="stage-tag">ELMA</span>
+      </div>
+    </div>
+
+    <!-- РЕШЕНИЕ -->
+    <div class="stage-row">
+      <div class="stage-phase">Решение</div>
+      <div class="stage-cell blue-c">
+        <div class="stage-cell-title">Решение руководителя организатора</div>
+        <div class="stage-cell-desc">Согласование через 5 ответственных лиц</div>
+        <span class="stage-tag">ELMA</span>
+      </div>
+      <div class="stage-cell orange-c">
+        <div class="stage-cell-title">Согласование решения ЗК</div>
+        <div class="stage-cell-desc">Согласование решения Закупочного комитета</div>
+        <span class="stage-tag manual">Manual</span>
+      </div>
+    </div>
+
+    <!-- ДОГОВОР -->
+    <div class="stage-row">
+      <div class="stage-phase">Договор</div>
+      <div class="stage-cell blue-c">
+        <div class="stage-cell-title">1 этап согласования договора</div>
+        <div class="stage-cell-desc">Подготовка и утверждение договора</div>
+        <span class="stage-tag">ELMA</span>
+      </div>
+      <div class="stage-cell orange-c">
+        <div class="stage-cell-title">2 этапа согласования договора</div>
+        <div class="stage-cell-desc">Дополнительное включение Закупочного комитета в согласование</div>
+        <span class="stage-tag">ELMA</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     06 · ВИДЫ ЗАКУПОК — ДЕТАЛЬНО
+════════════════════════════════════════════════ -->
+<section id="types" class="section">
+  <div class="section-title">Виды закупок — детальное описание</div>
+  <div class="section-sub">Характеристики, применение и ключевые критерии</div>
+
+  <div class="grid3">
+
+    <!-- ЕДИНСТВЕННЫЙ -->
+    <div class="type-card">
+      <div class="type-header">
+        <div>
+          <div class="type-name">Единственный поставщик</div>
+          <div class="type-subtitle">Неконкурентная закупка</div>
+        </div>
+        <span class="badge badge-muted">Неконкурентный</span>
+      </div>
+      <div class="type-desc">Предложение направляется конкретному поставщику без проведения торга. Применяется при отсутствии альтернатив на рынке или в случае уникальности товаров/услуг.</div>
+      <div class="type-key">
+        <strong>Критерий выбора:</strong> Уникальность / отсутствие альтернатив<br>
+        <strong>Срок (&lt;15 млн):</strong> 9 рабочих дней<br>
+        <strong>Срок (&gt;15 млн):</strong> 12 рабочих дней
+      </div>
+    </div>
+
+    <!-- АНАЛИЗ ЦЕН -->
+    <div class="type-card" style="border-color:rgba(0,168,150,0.3);">
+      <div class="type-header">
+        <div>
+          <div class="type-name">Анализ цен</div>
+          <div class="type-subtitle">Запрос ценовых предложений</div>
+        </div>
+        <span class="badge badge-teal">Конкурентный</span>
+      </div>
+      <div class="type-desc">Поставщик определяется по наиболее выгодным условиям на основе анализа открытых цен или коммерческих предложений. Обязательное использование ЭТП при сумме свыше 5 млн тенге.</div>
+      <div class="type-key">
+        <strong>Критерий выбора:</strong> Наиболее выгодная цена<br>
+        <strong>Срок (&lt;15 млн):</strong> 11 рабочих дней<br>
+        <strong>Срок (&gt;15 млн):</strong> 14 рабочих дней<br>
+        <strong>ЭТП:</strong> Не обязательно до 5 млн; обязательно выше
+      </div>
+    </div>
+
+    <!-- ТОРГ -->
+    <div class="type-card" style="border-color:rgba(244,165,26,0.3);">
+      <div class="type-header">
+        <div>
+          <div class="type-name">Торг</div>
+          <div class="type-subtitle">Аукцион на ЭТП</div>
+        </div>
+        <span class="badge badge-gold">Приоритетный</span>
+      </div>
+      <div class="type-desc">Многократное выставление ценовых предложений на электронной торговой площадке (ЭТП). Побеждает поставщик, предложивший наименьшую цену.</div>
+      <div class="type-key">
+        <strong>Критерий выбора:</strong> Наименьшая цена (автоматически)<br>
+        <strong>Срок (&lt;15 млн):</strong> 18 рабочих дней<br>
+        <strong>Срок (&gt;15 млн):</strong> 23 рабочих дня<br>
+        <strong>Площадка:</strong> ЭТП обязательно
+      </div>
+    </div>
+
+    <!-- КОНКУРС / HARDWAY — full width bottom -->
+    <div class="type-card" style="grid-column:1/-1; border-color:rgba(232,98,42,0.3);">
+      <div class="type-header">
+        <div>
+          <div class="type-name">Конкурс / Закупка HardWay</div>
+          <div class="type-subtitle">Комплексная многоэтапная оценка</div>
+        </div>
+        <span class="badge badge-orange">Комплексный</span>
+      </div>
+      <div class="grid2" style="gap:14px; margin-top:6px;">
+        <div>
+          <div class="type-desc">Выбор поставщика на основе оценки заявок по установленным критериям (может быть одно- или многоэтапным). В отличие от ценовых торгов, здесь учитываются качественные и технические характеристики поставщика.</div>
+        </div>
+        <div class="type-key">
+          <strong>Критерий выбора:</strong> Оценка по критериям (цена + качество + техника)<br>
+          <strong>Срок:</strong> до 40 рабочих дней<br>
+          <strong>Уровень решения:</strong> Закупочный комитет<br>
+          <strong>Применение:</strong> Сложные, крупные, технически ёмкие закупки
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<script>
+  // ─── Tab switching ───
+  function switchTab(id, btn) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+    if (id === 'timings') renderBars();
+  }
+
+  // ─── Bar chart ───
+  const barData = [
+    { label: 'Заказ под договор',        days: null,  text: 'По договору', highlight: false },
+    { label: 'Ед. поставщик (< 15 млн)', days: 9,     text: '9 дней',      highlight: false },
+    { label: 'Анализ цен (< 15 млн)',     days: 11,    text: '11 дней',     highlight: false },
+    { label: 'Ед. поставщик (> 15 млн)', days: 12,    text: '12 дней',     highlight: false },
+    { label: 'Анализ цен (> 15 млн)',     days: 14,    text: '14 дней',     highlight: false },
+    { label: 'Торг (< 15 млн)',           days: 18,    text: '18 дней',     highlight: false },
+    { label: 'Торг (> 15 млн)',           days: 23,    text: '23 дня',      highlight: false },
+    { label: 'HardWay / Конкурс',         days: 40,    text: '40 дней',     highlight: true  },
+  ];
+  const MAX = 40;
+
+  let barsRendered = false;
+  function renderBars() {
+    if (barsRendered) return;
+    barsRendered = true;
+    const container = document.getElementById('barList');
+    barData.forEach(d => {
+      const row = document.createElement('div');
+      row.className = 'bar-row';
+      const pct = d.days ? Math.round((d.days / MAX) * 100) : 0;
+      row.innerHTML = `
+        <div class="bar-label">${d.label}</div>
+        <div class="bar-track">
+          ${d.days
+            ? `<div class="bar-fill${d.highlight ? ' highlight' : ''}" style="width:0%" data-pct="${pct}%"></div>`
+            : `<div style="display:flex;align-items:center;height:100%;padding-left:10px;font-size:11px;color:var(--muted);font-style:italic;">по условиям договора</div>`
+          }
+        </div>
+        <div class="bar-days">${d.days ? d.text : '—'}</div>
+      `;
+      container.appendChild(row);
+    });
+    // Animate bars after a tick
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        document.querySelectorAll('.bar-fill[data-pct]').forEach(el => {
+          el.style.width = el.dataset.pct;
+        });
+      });
+    });
+  }
+</script>
+</body>
+</html>
