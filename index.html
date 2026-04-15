@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Глоссарий закупок — Bereke Bank 2026</title>
 <style>
-:root{--bg:#0B1929;--bg2:#112236;--bg3:#1A2E45;--bg4:#213550;--teal:#00A896;--teal2:#02C39A;--tealD:#007A6E;--gold:#F4A51A;--orange:#E8622A;--white:#EEF3F8;--muted:#7A9BB5;--bdr:rgba(0,168,150,0.2);--r:10px;}
+:root{--bg:#F4F6F9;--bg2:#FFFFFF;--bg3:#EDF0F5;--bg4:#E2E8F0;--teal:#007A6E;--teal2:#00957A;--tealD:#005F56;--gold:#B87A00;--orange:#C04A15;--white:#1A202C;--muted:#546E7A;--bdr:rgba(0,122,110,0.18);--r:10px;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-body{background:var(--bg);color:var(--white);font-family:-apple-system,'Segoe UI',Arial,sans-serif;font-size:13px;line-height:1.55;min-height:100vh;}
-.nav{position:sticky;top:0;z-index:200;background:rgba(11,25,41,.97);backdrop-filter:blur(8px);border-bottom:1px solid var(--bdr);display:flex;align-items:stretch;gap:0;padding:0 12px;overflow-x:auto;scrollbar-width:none;}
+body{background:var(--bg);color:var(--white);font-family:-apple-system,'Segoe UI',Arial,sans-serif;font-size:15px;line-height:1.6;min-height:100vh;}
+.nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-bottom:2px solid var(--bdr);display:flex;align-items:stretch;gap:0;padding:0 12px;overflow-x:auto;scrollbar-width:none;}
 .nav::-webkit-scrollbar{display:none;}
-.nav-brand{font-size:13px;font-weight:700;color:var(--teal);letter-spacing:.05em;padding:0 14px 0 4px;border-right:1px solid var(--bdr);margin-right:4px;display:flex;align-items:center;white-space:nowrap;}
-.tab{background:none;border:none;cursor:pointer;color:var(--muted);font-size:11.5px;font-weight:500;padding:11px 13px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .18s,border-color .18s;display:flex;align-items:center;gap:5px;}
+.nav-brand{font-size:14px;font-weight:700;color:var(--teal);letter-spacing:.05em;padding:0 14px 0 4px;border-right:1px solid var(--bdr);margin-right:4px;display:flex;align-items:center;white-space:nowrap;}
+.tab{background:none;border:none;cursor:pointer;color:var(--muted);font-size:12.5px;font-weight:500;padding:11px 13px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .18s,border-color .18s;display:flex;align-items:center;gap:5px;}
 .tab:hover{color:var(--white);}
 .tab.on{color:var(--teal);border-bottom-color:var(--teal);}
 .tab-num{font-size:9px;color:inherit;opacity:.6;font-weight:600;}
@@ -19,55 +19,55 @@ body{background:var(--bg);color:var(--white);font-family:-apple-system,'Segoe UI
 .sec.on{display:block;}
 @keyframes fi{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
 .sh{display:flex;align-items:flex-end;gap:12px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--bdr);}
-.sh-num{font-size:40px;font-weight:800;color:var(--bg3);line-height:1;letter-spacing:-.02em;}
-.sh-title{font-size:18px;font-weight:700;color:var(--white);letter-spacing:-.01em;}
-.sh-sub{font-size:11px;color:var(--muted);margin-top:2px;}
+.sh-num{font-size:44px;font-weight:800;color:#CBD5E0;line-height:1;letter-spacing:-.02em;}
+.sh-title{font-size:20px;font-weight:700;color:var(--white);letter-spacing:-.01em;}
+.sh-sub{font-size:12px;color:var(--muted);margin-top:2px;}
 .cols2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
 @media(max-width:760px){.cols2{grid-template-columns:1fr;}}
 .panel{background:var(--bg2);border:1px solid var(--bdr);border-radius:var(--r);overflow:hidden;}
-.ph{padding:9px 14px;background:var(--bg3);font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--teal);border-bottom:1px solid var(--bdr);}
+.ph{padding:10px 16px;background:var(--bg3);font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--teal);border-bottom:1px solid var(--bdr);}
 .term-list{padding:10px 12px;display:flex;flex-direction:column;gap:6px;}
-.tc{display:flex;align-items:flex-start;gap:10px;padding:9px 10px;border-radius:8px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);transition:background .18s;}
-.tc:hover{background:rgba(0,168,150,.07);border-color:var(--bdr);}
+.tc{display:flex;align-items:flex-start;gap:10px;padding:9px 10px;border-radius:8px;background:rgba(0,0,0,.02);border:1px solid rgba(0,0,0,.08);transition:background .18s;}
+.tc:hover{background:rgba(0,122,110,.06);border-color:var(--bdr);}
 .ic{width:40px;height:40px;min-width:40px;border-radius:50%;background:rgba(0,168,150,.15);border:1px solid rgba(0,168,150,.3);display:flex;align-items:center;justify-content:center;font-size:18px;}
 .ic-g{background:rgba(244,165,26,.12);border-color:rgba(244,165,26,.3);}
-.tn{font-size:12.5px;font-weight:700;color:var(--white);margin-bottom:2px;}
-.td2{font-size:11.5px;color:var(--muted);}
+.tn{font-size:14px;font-weight:700;color:var(--white);margin-bottom:3px;}
+.td2{font-size:13px;color:var(--muted);}
 .ssl{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:8px 12px;display:flex;align-items:center;gap:6px;}
 .ssl::after{content:'';flex:1;height:1px;background:var(--bdr);}
 .nc-l{color:var(--muted);}
 .cc-l{color:var(--gold);}
 .tci-wrap{padding:6px 10px 10px;display:flex;flex-direction:column;gap:8px;}
-.tci{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-radius:8px;border:1px solid var(--bdr);background:rgba(26,46,69,.5);}
-.tci:hover{background:rgba(26,46,69,.85);}
+.tci{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-radius:8px;border:1px solid var(--bdr);background:rgba(0,0,0,.02);}
+.tci:hover{background:rgba(0,0,0,.05);}
 .tic{width:44px;height:44px;min-width:44px;border-radius:8px;background:rgba(0,168,150,.14);border:1px solid rgba(0,168,150,.25);display:flex;align-items:center;justify-content:center;font-size:20px;}
 .tic-g{background:rgba(244,165,26,.12);border-color:rgba(244,165,26,.3);}
 .tic-o{background:rgba(232,98,42,.12);border-color:rgba(232,98,42,.3);}
-.tcn{font-size:12.5px;font-weight:700;color:var(--white);margin-bottom:3px;}
-.tcd{font-size:11.5px;color:var(--muted);}
+.tcn{font-size:14px;font-weight:700;color:var(--white);margin-bottom:3px;}
+.tcd{font-size:13px;color:var(--muted);}
 .tag{display:inline-flex;align-items:center;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;text-transform:uppercase;letter-spacing:.05em;vertical-align:middle;margin-left:4px;}
 .tag-t{background:rgba(0,168,150,.15);color:var(--teal2);border:1px solid rgba(0,168,150,.3);}
 .tag-g{background:rgba(244,165,26,.15);color:var(--gold);border:1px solid rgba(244,165,26,.3);}
 .tag-o{background:rgba(232,98,42,.15);color:var(--orange);border:1px solid rgba(232,98,42,.3);}
-.tag-m{background:rgba(139,163,187,.12);color:var(--muted);border:1px solid rgba(139,163,187,.22);}
+.tag-m{background:rgba(84,110,122,.1);color:var(--muted);border:1px solid rgba(84,110,122,.2);}
 /* Chart */
 .cw{padding:16px;}
 .br{display:grid;grid-template-columns:190px 1fr 58px;align-items:center;gap:10px;margin-bottom:7px;}
-.bl{font-size:12px;color:var(--white);text-align:right;}
-.bt{height:26px;background:rgba(255,255,255,.05);border-radius:5px;overflow:hidden;}
+.bl{font-size:13px;color:var(--white);text-align:right;}
+.bt{height:26px;background:rgba(0,0,0,.04);border-radius:5px;overflow:hidden;}
 .bf{height:100%;border-radius:5px;transition:width 1.1s cubic-bezier(.4,0,.2,1);}
 .bf-t{background:linear-gradient(90deg,#007A6E,#00A896);}
 .bf-o{background:linear-gradient(90deg,#c94b1a,#E8622A);}
-.bv{font-size:13px;font-weight:700;color:var(--gold);}
+.bv{font-size:14px;font-weight:700;color:var(--gold);}
 .bs{display:flex;align-items:center;height:26px;padding-left:12px;font-size:11px;color:var(--muted);font-style:italic;}
 .cl{display:flex;gap:16px;margin-top:14px;padding-top:10px;border-top:1px solid var(--bdr);font-size:11px;color:var(--muted);}
 .ld{width:10px;height:10px;border-radius:3px;display:inline-block;margin-right:5px;}
 /* Flow */
 .fw{display:flex;flex-direction:column;align-items:center;gap:0;padding:20px;}
-.fstart{padding:10px 28px;border-radius:24px;border:2px solid var(--teal);background:rgba(0,168,150,.1);font-weight:700;font-size:13px;color:var(--teal);}
+.fstart{padding:10px 28px;border-radius:24px;border:2px solid var(--teal);background:rgba(0,122,110,.08);font-weight:700;font-size:13px;color:var(--teal);}
 .fline{width:2px;height:20px;background:var(--bdr);margin:0 auto;}
 .fdw{position:relative;width:140px;height:76px;}
-.fdb{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(45deg);width:60px;height:60px;background:var(--bg3);border:2px solid var(--teal);border-radius:4px;}
+.fdb{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(45deg);width:60px;height:60px;background:#EDF0F5;border:2px solid var(--teal);border-radius:4px;}
 .fdl{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:11px;font-weight:700;color:var(--teal);text-align:center;line-height:1.3;z-index:2;white-space:nowrap;}
 .fbr{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;width:100%;margin-top:4px;}
 .fb{display:flex;flex-direction:column;align-items:center;gap:6px;}
@@ -75,19 +75,19 @@ body{background:var(--bg);color:var(--white);font-family:-apple-system,'Segoe UI
 .fbh{padding:7px 14px;border-radius:6px;font-size:12px;font-weight:700;text-align:center;width:100%;}
 .fb-nc{background:rgba(0,168,150,.13);border:1px solid rgba(0,168,150,.3);color:var(--teal2);}
 .fb-ac{background:rgba(0,168,150,.25);border:1px solid rgba(0,168,150,.5);color:var(--teal);}
-.fb-cc{background:var(--bg3);border:1px solid rgba(255,255,255,.18);color:var(--white);}
+.fb-cc{background:var(--bg3);border:1px solid rgba(0,0,0,.15);color:var(--white);}
 .fbi-wrap{display:flex;flex-direction:column;gap:4px;width:100%;}
 .fbi{padding:5px 9px;border-radius:5px;font-size:11px;text-align:center;}
-.bi-nc{background:rgba(0,168,150,.07);border:1px solid rgba(0,168,150,.18);color:var(--muted);}
-.bi-ac{background:rgba(0,168,150,.1);border:1px solid rgba(0,168,150,.3);color:var(--white);}
-.bi-g{background:rgba(244,165,26,.08);border:1px solid rgba(244,165,26,.25);color:var(--white);}
-.bi-o{background:rgba(232,98,42,.08);border:1px solid rgba(232,98,42,.25);color:var(--white);}
+.bi-nc{background:rgba(0,122,110,.06);border:1px solid rgba(0,168,150,.18);color:var(--muted);}
+.bi-ac{background:rgba(0,122,110,.08);border:1px solid rgba(0,168,150,.3);color:var(--white);}
+.bi-g{background:rgba(184,122,0,.07);border:1px solid rgba(244,165,26,.25);color:var(--white);}
+.bi-o{background:rgba(192,74,21,.07);border:1px solid rgba(232,98,42,.25);color:var(--white);}
 .fnote{font-size:11px;color:var(--muted);text-align:center;margin-top:16px;font-style:italic;max-width:420px;}
 /* Matrix table */
 .mt12{margin-top:12px;}
 .mtbl{width:100%;border-collapse:collapse;font-size:11.5px;}
-.mtbl th{background:var(--bg3);color:var(--teal);padding:8px 10px;text-align:left;border-bottom:2px solid var(--bdr);font-size:10px;text-transform:uppercase;letter-spacing:.06em;}
-.mtbl td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.05);vertical-align:top;}
+.mtbl th{background:var(--bg3);color:var(--teal);padding:10px 12px;text-align:left;border-bottom:2px solid var(--bdr);font-size:12px;text-transform:uppercase;letter-spacing:.06em;}
+.mtbl td{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.05);vertical-align:top;}
 .mtbl tr:hover td{background:rgba(255,255,255,.02);}
 .tr{font-family:Consolas,'Courier New',monospace;font-size:11px;color:var(--gold);font-weight:700;white-space:nowrap;}
 .td-d{color:var(--teal);font-weight:600;}
@@ -96,17 +96,17 @@ body{background:var(--bg);color:var(--white);font-family:-apple-system,'Segoe UI
 .cv-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-radius:var(--r);overflow:hidden;}
 @media(max-width:800px){.cv-row{grid-template-columns:1fr 1fr;}}
 .cv{padding:18px 16px;display:flex;flex-direction:column;gap:6px;}
-.cv1{background:#1e3d28;}
-.cv2{background:#1a4a35;}
-.cv3{background:#0d4a40;}
-.cv4{background:#073d36;}
-.cv-rng{font-family:Consolas,'Courier New',monospace;font-size:12.5px;font-weight:700;color:var(--gold);}
-.cv-proc{font-size:11px;color:var(--teal2);font-weight:600;margin-top:2px;}
-.cv-det{font-size:10.5px;color:rgba(200,220,210,.7);margin-top:4px;line-height:1.4;}
+.cv1{background:#1a4a2e;}
+.cv2{background:#155740;}
+.cv3{background:#0a5248;}
+.cv4{background:#063630;}
+.cv-rng{font-size:13px;font-family:Consolas,'Courier New',monospace;font-size:12.5px;font-weight:700;color:var(--gold);}
+.cv-proc{font-size:12.5px;color:var(--teal2);font-weight:600;margin-top:2px;}
+.cv-det{font-size:12px;color:rgba(200,220,210,.7);margin-top:4px;line-height:1.4;}
 .cv-dec{margin-top:auto;padding-top:10px;border-top:1px solid rgba(255,255,255,.1);}
-.cv-role{font-size:12px;font-weight:800;color:var(--white);text-transform:uppercase;letter-spacing:.03em;}
+.cv-role{font-size:13.5px;font-weight:800;color:var(--white);text-transform:uppercase;letter-spacing:.03em;}
 .cv-sub{font-size:10px;color:rgba(200,220,210,.6);margin-top:2px;}
-.sfooter{margin-top:10px;padding:9px 14px;background:rgba(0,168,150,.07);border-radius:7px;border:1px solid var(--bdr);font-size:11.5px;color:var(--teal);font-weight:600;text-align:center;}
+.sfooter{margin-top:10px;padding:11px 16px;background:rgba(0,122,110,.06);border-radius:7px;border:1px solid var(--bdr);font-size:13px;color:var(--teal);font-weight:600;text-align:center;}
 /* Process */
 .pg{display:flex;flex-direction:column;gap:0;padding:12px;}
 .phdr{display:grid;grid-template-columns:90px 1fr 1fr;gap:8px;margin-bottom:8px;}
@@ -115,12 +115,12 @@ body{background:var(--bg);color:var(--white);font-family:-apple-system,'Segoe UI
 .pcl-o{background:rgba(232,98,42,.18);color:var(--orange);}
 .prow{display:grid;grid-template-columns:90px 1fr 1fr;gap:8px;margin-bottom:8px;align-items:stretch;}
 .pphase{display:flex;align-items:center;justify-content:center;text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);background:var(--bg3);border-radius:7px;padding:8px 4px;border:1px solid var(--bdr);}
-.pcell{padding:10px 12px;border-radius:7px;border:1px solid var(--bdr);background:rgba(26,46,69,.5);}
+.pcell{padding:10px 12px;border-radius:7px;border:1px solid var(--bdr);background:rgba(0,0,0,.02);}
 .pc-b{border-left:3px solid var(--teal);}
 .pc-o{border-left:3px solid var(--orange);}
 .pc-s{border-left:3px solid var(--muted);grid-column:2/4;}
-.pct{font-size:12px;font-weight:700;color:var(--white);margin-bottom:3px;}
-.pcd{font-size:11px;color:var(--muted);}
+.pct{font-size:13.5px;font-weight:700;color:var(--white);margin-bottom:3px;}
+.pcd{font-size:12.5px;color:var(--muted);}
 .ptag{display:inline-block;font-size:9px;font-weight:700;padding:2px 7px;border-radius:10px;margin-top:5px;text-transform:uppercase;letter-spacing:.04em;}
 .ptag-e{background:rgba(0,168,150,.15);color:var(--teal);border:1px solid rgba(0,168,150,.25);}
 .ptag-m{background:rgba(232,98,42,.15);color:var(--orange);border:1px solid rgba(232,98,42,.25);}
@@ -135,10 +135,10 @@ body{background:var(--bg);color:var(--white);font-family:-apple-system,'Segoe UI
 .dci-g{background:rgba(244,165,26,.14);border:1px solid rgba(244,165,26,.3);}
 .dci-o{background:rgba(232,98,42,.14);border:1px solid rgba(232,98,42,.3);}
 .dci-m{background:rgba(139,163,187,.1);border:1px solid rgba(139,163,187,.2);}
-.dcn{font-size:14px;font-weight:800;color:var(--white);line-height:1.2;}
+.dcn{font-size:16px;font-weight:800;color:var(--white);line-height:1.2;}
 .dcs{font-size:11px;color:var(--muted);margin-top:3px;}
-.dcb{padding:12px 16px;flex:1;font-size:12px;color:var(--muted);line-height:1.6;}
-.dcf{padding:10px 16px;background:rgba(0,0,0,.18);display:flex;flex-direction:column;gap:4px;}
+.dcb{padding:14px 16px;flex:1;font-size:13.5px;color:var(--muted);line-height:1.6;}
+.dcf{padding:10px 16px;background:rgba(0,0,0,.04);display:flex;flex-direction:column;gap:4px;}
 .dkv{display:flex;justify-content:space-between;align-items:center;font-size:11px;}
 .dk{color:var(--muted);}
 .dv{font-weight:700;color:var(--white);}
@@ -284,7 +284,7 @@ body{background:var(--bg);color:var(--white);font-family:-apple-system,'Segoe UI
     <div class="dc"><div class="dct"><div class="dci dci-m">🤝</div><div><div class="dcn">Единственный поставщик</div><div class="dcs"><span class="tag tag-m">Неконкурентный</span></div></div></div><div class="dcb">Предложение направляется конкретному поставщику без проведения торга. Применяется при отсутствии альтернатив на рынке или уникальности товаров и услуг.</div><div class="dcf"><div class="dkv"><span class="dk">Критерий</span><span class="dv">Уникальность</span></div><div class="dkv"><span class="dk">Срок (&lt;15 млн)</span><span class="dv dv-g">9 дней</span></div><div class="dkv"><span class="dk">Срок (&gt;15 млн)</span><span class="dv dv-g">12 дней</span></div></div></div>
     <div class="dc"><div class="dct"><div class="dci dci-t">🔍</div><div><div class="dcn">Анализ цен</div><div class="dcs"><span class="tag tag-t">Конкурентный</span></div></div></div><div class="dcb">Поставщик по наиболее выгодным условиям на основе анализа открытых цен или коммерческих предложений. ЭТП обязательна при сумме свыше 5 млн тенге.</div><div class="dcf"><div class="dkv"><span class="dk">Критерий</span><span class="dv dv-t">Лучшая цена</span></div><div class="dkv"><span class="dk">Срок (&lt;15 млн)</span><span class="dv dv-g">11 дней</span></div><div class="dkv"><span class="dk">Срок (&gt;15 млн)</span><span class="dv dv-g">14 дней</span></div><div class="dkv"><span class="dk">ЭТП</span><span class="dv" style="color:var(--muted);">От 5 млн — обязательно</span></div></div></div>
     <div class="dc"><div class="dct"><div class="dci dci-g">⚖️</div><div><div class="dcn">Торг (Аукцион)</div><div class="dcs"><span class="tag tag-g">Приоритетный</span></div></div></div><div class="dcb">Многократное выставление ценовых предложений на ЭТП. Победитель — поставщик с наименьшей ценой. Автоматическое определение результата.</div><div class="dcf"><div class="dkv"><span class="dk">Критерий</span><span class="dv dv-t">Наименьшая цена</span></div><div class="dkv"><span class="dk">Срок (&lt;15 млн)</span><span class="dv dv-g">18 дней</span></div><div class="dkv"><span class="dk">Срок (&gt;15 млн)</span><span class="dv dv-g">23 дня</span></div><div class="dkv"><span class="dk">ЭТП</span><span class="dv dv-t">Обязательно</span></div></div></div>
-    <div class="dc wide"><div class="dct"><div class="dci dci-o">🏆</div><div><div class="dcn">Конкурс / Закупка HardWay</div><div class="dcs"><span class="tag tag-o">Комплексная оценка</span></div></div></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:0;"><div class="dcb" style="border-right:1px solid var(--bdr);">Выбор поставщика на основе оценки заявок по установленным критериям — может быть одно- или многоэтапным. В отличие от ценовых торгов, здесь учитываются <strong style="color:var(--white);">качественные и технические характеристики</strong> поставщика.</div><div class="dcf" style="flex-direction:row;flex-wrap:wrap;gap:0;padding:0;"><div style="flex:1;padding:10px 14px;border-right:1px solid rgba(255,255,255,.06);"><div class="dkv"><span class="dk">Критерий</span><span class="dv dv-o">Цена + Качество + Техника</span></div><div class="dkv" style="margin-top:6px;"><span class="dk">Этапность</span><span class="dv">Одно- или многоэтапный</span></div></div><div style="flex:1;padding:10px 14px;"><div class="dkv"><span class="dk">Максимальный срок</span><span class="dv dv-g" style="font-size:20px;">40 дней</span></div><div class="dkv" style="margin-top:6px;"><span class="dk">Уровень решения</span><span class="dv dv-t">Закупочный комитет</span></div></div></div></div></div>
+    <div class="dc wide"><div class="dct"><div class="dci dci-o">🏆</div><div><div class="dcn">Конкурс / Закупка HardWay</div><div class="dcs"><span class="tag tag-o">Комплексная оценка</span></div></div></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:0;"><div class="dcb" style="border-right:1px solid var(--bdr);">Выбор поставщика на основе оценки заявок по установленным критериям — может быть одно- или многоэтапным. В отличие от ценовых торгов, здесь учитываются <strong style="color:var(--white);">качественные и технические характеристики</strong> поставщика.</div><div class="dcf" style="flex-direction:row;flex-wrap:wrap;gap:0;padding:0;"><div style="flex:1;padding:10px 14px;border-right:1px solid rgba(0,0,0,.07);"><div class="dkv"><span class="dk">Критерий</span><span class="dv dv-o">Цена + Качество + Техника</span></div><div class="dkv" style="margin-top:6px;"><span class="dk">Этапность</span><span class="dv">Одно- или многоэтапный</span></div></div><div style="flex:1;padding:10px 14px;"><div class="dkv"><span class="dk">Максимальный срок</span><span class="dv dv-g" style="font-size:20px;">40 дней</span></div><div class="dkv" style="margin-top:6px;"><span class="dk">Уровень решения</span><span class="dv dv-t">Закупочный комитет</span></div></div></div></div></div>
   </div>
 </section>
 
